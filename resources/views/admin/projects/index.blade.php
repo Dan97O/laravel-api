@@ -34,8 +34,11 @@
                         <td>{{ $project->title }}</td>
                         <td>{{ $project->slug }}</td>
                         <td>
-
-                            VIEW/EDIT/DELETE
+                            <a class="btn btn-primary" href="{{ route('admin.projects.show', $project->id) }}"
+                                role="button">
+                                <i class="fas fa-eye fa-sm fa-fw"></i>
+                            </a>
+                            EDIT/DELETE
 
                         </td>
 
