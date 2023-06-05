@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use Illuminate\Http\Response;
 
 class ProjectController extends Controller
 {
@@ -38,7 +39,19 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        //dd($request->all());
+
+        $val_data = $request->validated();
+
+        $slug = Project::generateSlug($val_data['title']);
+        //dd($slug);
+        $val_data['slug'] = $slug;
+        //dd($val_data);
+
+        // Create the new Post
+        Project::create($val_data);
+        // redirect back
+        return to_route('admin.projects.index')->with('message', 'Project Created Successfully');
     }
 
     /**
