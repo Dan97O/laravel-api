@@ -74,7 +74,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
@@ -86,7 +86,15 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $val_data = $request->validate([
+            'title' => 'required|max:150',
+            'cover_image' => 'nullable',
+            'content' => 'nullable',
+            'date_time' => 'nullable|date',
+        ]);
+
+        $project->update($val_data);
+        return to_route('admin.projects.index')->with('message', 'Project Update');
     }
 
     /**

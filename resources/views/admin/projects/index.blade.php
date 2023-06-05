@@ -38,7 +38,11 @@
                                 role="button">
                                 <i class="fas fa-eye fa-sm fa-fw"></i>
                             </a>
-                            EDIT/DELETE
+                            <a class="btn btn-secondary" href="{{ route('admin.projects.edit', $project->id) }}"
+                                role="button">
+                                <i class="fas fa-pencil fa-sm fa-fw"></i>
+                            </a>
+                            DELETE
 
                         </td>
 
