@@ -7,7 +7,7 @@
 
     @include('partials.validation_errors')
 
-    <form action="{{ route('admin.projects.update', $project->id) }}" method="post">
+    <form action="{{ route('admin.projects.update', $project) }}" method="post">
         @csrf
         @method('PUT')
 
@@ -27,7 +27,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="date_time" class="form-label">Image</label>
+            <label for="date_time" class="form-label">Date</label>
             <input type="date" class="form-control @error('date_time') is-invalid @enderror" name="date_time"
                 id="date_time" aria-describedby="date_timeHelper" value="{{ $project->date_time }}">
             <small id="date_timeHelper" class="form-text text-muted">Enter the creation date of the project</small>
@@ -35,8 +35,8 @@
 
         <div class="mb-3">
             <label for="content" class="form-label">Content</label>
-            <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="content" rows="3"
-                value="{{ $project->content }}"></textarea>
+            <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="content" rows="6">{{ $project->content }}
+            </textarea>
         </div>
 
         <button type="submit" class="btn btn-dark">Save</button>
