@@ -3,18 +3,18 @@
 
 @section('content')
     <div class="container py-5">
-        <div class="row my-5 py-5">
-            <div class="col d-flex justify-content-center py-2">
-                <div class="card text-center w-50 shadow my-5 bg-dark">
-                    <div class="card-img-top">
-                        <img src="{{ $project->cover_image }}" alt="{{ $project->title }}" class="img-fluid">
-                    </div>
-                    <div class="card-body text-white">
-                        <h5 class="card-title">Title: {{ $project->title }}</h5>
-                        <p class="card-text">Description: {{ $project->content }}</p>
-                        <p class="card-text">Date: {{ $project->date_time }}</p>
-                    </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="{{ $project->cover_image }}" alt="{{ $project->title }}" class="img-fluid">
+            </div>
+            <div class="col-lg-6">
+                <h2 class="title">{{ $project->title }}</h2>
+                <p class="description">{{ $project->content }}</p>
+                <div class="buttons d-flex justify-content-between">
+                    <a href="{{ $project->site_link }}" class="btn btn-primary">{{ __('View Site') }}</a>
+                    <a href="{{ $project->source_code }}" class="btn btn-primary">{{ __('View Project') }}</a>
                 </div>
+                <p class="date pt-3">{{ __('Date:') }} {{ $project->date_time }}</p>
             </div>
         </div>
     </div>
