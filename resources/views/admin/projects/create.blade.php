@@ -28,6 +28,23 @@
         </div>
 
         <div class="mb-3">
+            <label for="site_link" class="form-label">Site Link</label>
+            <input type="text" class="form-control @error('site_link') is-invalid @enderror" name="site_link"
+                id="site_link" aria-describedby="site_linkHelper" placeholder="Add URL Site" value="{{ old('site_link') }}">
+            <small id="site_linkHelper" class="form-text text-muted">Type the post site_link max 255 characters - must
+                be unique</small>
+        </div>
+
+        <div class="mb-3">
+            <label for="source_code" class="form-label">Source Code</label>
+            <input type="text" class="form-control @error('source_code') is-invalid @enderror" name="source_code"
+                id="source_code" aria-describedby="source_codeHelper" placeholder="Add URL Source Code"
+                value="{{ old('source_code') }}">
+            <small id="source_codeHelper" class="form-text text-muted">Type the post source_code max 255 characters - must
+                be unique</small>
+        </div>
+
+        <div class="mb-3">
             <label for="date_time" class="form-label">Date</label>
             <input type="date" class="form-control @error('date_time') is-invalid @enderror" name="date_time"
                 id="date_time" aria-describedby="date_timeHelper" placeholder="Add Date" value="{{ old('date_time') }}">
