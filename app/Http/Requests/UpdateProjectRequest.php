@@ -31,6 +31,7 @@ class UpdateProjectRequest extends FormRequest
             'site_link' => ['nullable', 'max:255'],
             'source_code' => ['nullable', 'max:255'],
             'date_time' => ['date'],
+            'type_id' => ['exists:types,id'],
         ];
     }
 }
