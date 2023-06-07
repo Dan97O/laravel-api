@@ -9,6 +9,7 @@
             </div>
             <div class="col-lg-6">
                 <h2 class="title">{{ $project->title }}</h2>
+                <p> {{ $project->type?->type }} </p>
                 <p class="description">{{ $project->content }}</p>
                 <div class="buttons d-flex justify-content-between">
                     <a href="{{ $project->site_link }}" class="btn btn-primary">{{ __('View Site') }}</a>
