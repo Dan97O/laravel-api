@@ -2,9 +2,8 @@
 
 
 @section('content')
-    <h1>Show posts table</h1>
-    <a class="btn btn-dark text-end" href="{{ route('admin.projects.create') }}" role="button">Create a
-        new
+    <h1 class="mt-3">Show posts table</h1>
+    <a class="btn btn-secondary my-3 text-end" href="{{ route('admin.projects.create') }}" role="button">Create a new
         Project</a>
 
     @include('partials.session_message')
@@ -15,13 +14,14 @@
     table-borderless
     table-primary
     align-middle">
-            <thead class="table-light">
+            <thead class="table-secondary">
 
                 <tr>
                     <th>ID</th>
                     <th>Cover</th>
                     <th>Title</th>
                     <th>Slug</th>
+                    <th>Type</th>
                     <th>Data</th>
                     <th>Actions</th>
                 </tr>
@@ -33,6 +33,7 @@
                         <td><img height="100" src="{{ $project->cover_image }}" alt="{{ $project->title }}"></td>
                         <td>{{ $project->title }}</td>
                         <td>{{ $project->slug }}</td>
+                        <td>{{ $project->type?->type }}</td>
                         <td>{{ $project->date_time }}</td>
                         <td>
                             <a class="btn btn-primary" href="{{ route('admin.projects.show', $project->slug) }}"
