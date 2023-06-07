@@ -18,6 +18,18 @@
                 title max 150 characters - must be
                 unique</small>
         </div>
+
+        <div class="mb-3">
+            <label for="type_id" class="form-label">Type</label>
+            <select class="form-select @error('type_id') is-invalid @enderror" name="type_id" id="type_id">
+                <option value="">Select a type</option>
+                @foreach ($types as $type)
+                    <option value="{{ $type->id }}" {{ $type->id == old('type_id', '') ? 'selected' : '' }}>
+                        {{ $type->type }}</option>
+                @endforeach
+            </select>
+        </div>
+
         <div class="mb-3">
             <label for="cover_image" class="form-label">Image</label>
             <input type="text" class="form-control @error('cover_image') is-invalid @enderror" name="cover_image"

@@ -29,7 +29,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        $types = Type::orderById('id')->get();
+        $types = Type::orderByDesc('id')->get();
         return view('admin.projects.create', compact('types'));
     }
 
