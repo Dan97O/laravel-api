@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Http\Response;
 
 class ProjectController extends Controller
@@ -17,7 +18,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::orderByDesc('id')->paginate(8);
+        $projects = Project::orderByDesc('id')->get();
         return view('admin.projects.index', compact('projects'));
     }
 
@@ -28,7 +29,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $types = Type::orderById('id')->get();
+        return view('admin.projects.create', compact('types'));
     }
 
     /**
@@ -74,7 +76,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        $types = Type::orderById('id')->get();
+        return view('admin.projects.edit', compact('project', 'types'));
     }
 
     /**
