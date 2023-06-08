@@ -22,6 +22,7 @@
                     <th>Title</th>
                     <th>Slug</th>
                     <th>Type</th>
+                    <th>Technology</th>
                     <th>Data</th>
                     <th>Actions</th>
                 </tr>
@@ -34,6 +35,11 @@
                         <td>{{ $project->title }}</td>
                         <td>{{ $project->slug }}</td>
                         <td>{{ $project->type?->type }}</td>
+                        <td>
+                            @foreach ($project->technologies as $technology)
+                                {{ $technology->name }}
+                            @endforeach
+                        </td>
                         <td>{{ $project->date_time }}</td>
                         <td>
                             <a class="btn btn-primary" href="{{ route('admin.projects.show', $project->slug) }}"
