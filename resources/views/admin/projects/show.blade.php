@@ -16,6 +16,7 @@
                     <a href="{{ $project->source_code }}" class="btn btn-primary">{{ __('View Project') }}</a>
                 </div>
                 <p class="date pt-3">{{ __('Date:') }} {{ $project->date_time }}</p>
+                <p> {{ $project->technology_id?->name }} </p>
             </div>
         </div>
     </div>
