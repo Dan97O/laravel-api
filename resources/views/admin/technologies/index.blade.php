@@ -13,7 +13,7 @@
             <div class="col-6">
                 <form action="{{ route('admin.technologies.store') }}" method="post">
                     @csrf
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3 mt-3">
                         <input type="text" class="form-control bg-secondary border-0 text-white"
                             placeholder="Add technologies" aria-label="Button" name="name" id="name">
                     </div>
@@ -25,8 +25,23 @@
                         </button>
                     </div>
                 </form>
-            </div>
+                <div class="row mt-5">
+                    @foreach ($technologies as $technology)
+                        <div class="col-md-3 mb-4">
+                            <div class="card bg-black text-white shadow"
+                                style="width: 100%; height: 290px; position: relative;">
+                                @if ($technology->image)
+                                    <img src="{{ $technology->image }}" class="card-img-top" alt="{{ $technology->name }}">
+                                @endif
+                                <div class="card-footer" style="position: absolute; bottom: 0; width: 100%;">
+                                    <h6 class="card-title text-center">{{ $technology->name }}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
 
+            </div>
 
             <div class="col-6">
                 <div class="table-responsive-md">
@@ -61,8 +76,14 @@
                                         @endif
                                     </td>
                                     <td>
+                                        <a class="btn btn-secondary"
+                                            href="{{ route('admin.technologies.edit', $technology->slug) }}"
+                                            role="button">
+                                            <i class="fas fa-pencil fa-sm fa-fw"></i>
+                                        </a>
+
                                         <!-- Modal trigger button -->
-                                        <button type="button" class="btn btn-danger btn-lg" data-bs-toggle="modal"
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#deleteModal-{{ $technology->id }}">
                                             <i class="fas fa-trash fa-sm fa-fw"></i>
                                         </button>
@@ -75,12 +96,13 @@
                                                 role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="modal-{{ $technology->name }}">Modal
-                                                            title</h5>
+                                                        <h5 class="modal-title text-black"
+                                                            id="modal-{{ $technology->name }}">
+                                                            {{ $technology->name }} #{{ $technology->id }}</h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                             aria-label="Close"></button>
                                                     </div>
-                                                    <div class="modal-body">
+                                                    <div class="modal-body text-black">
                                                         This is a destructive action
                                                     </div>
                                                     <div class="modal-footer">
