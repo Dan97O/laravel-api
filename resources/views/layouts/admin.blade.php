@@ -77,13 +77,14 @@
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.types.index' ? 'bg-dark' : '' }} "
                                     href="{{ route('admin.types.index') }}">
                                     <i class="fa-solid fa-bookmark"></i>
-                                    {{ __('Categories') }}
+                                    {{ __('Types') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="#">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.types.index' ? 'bg-dark' : '' }}"
+                                    href="{{ route('admin.technologies.index') }}">
                                     <i class="fa-solid fa-tags"></i>
-                                    Tags
+                                    {{ __('Tecnologies') }}
                                 </a>
                             </li>
 
