@@ -84,7 +84,7 @@
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.types.index' ? 'bg-dark' : '' }}"
                                     href="{{ route('admin.technologies.index') }}">
                                     <i class="fa-solid fa-tags"></i>
-                                    {{ __('Tecnologies') }}
+                                    {{ __('Technologies') }}
                                 </a>
                             </li>
 

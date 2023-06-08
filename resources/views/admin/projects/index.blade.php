@@ -15,7 +15,6 @@
     table-primary
     align-middle">
             <thead class="table-dark shadow">
-
                 <tr>
                     <th>ID</th>
                     <th>Cover</th>

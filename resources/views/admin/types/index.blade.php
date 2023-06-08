@@ -20,7 +20,7 @@
         <div class="col-6">
 
             <div class="table-responsive-md">
-                <table class="table table-secondary table-striped table-hover">
+                <table class="table table-dark table-striped table-hover">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
