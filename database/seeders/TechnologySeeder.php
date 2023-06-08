@@ -16,12 +16,12 @@ class TechnologySeeder extends Seeder
     public function run()
     {
         $technologies = ['HTML', 'CSS', 'JavaScript', 'VueJs', 'PHP', 'MySQL', 'Laravel', 'SCSS', 'BootStrap', 'Vite'];
-        foreach ($technologies as $techology) {
-            $newTechology = new Technology();
-            $newTechology->name = $techology;
-            $newTechology->slug = Str::slug($newTechology->name);
-            $newTechology->image = '';
-            $newTechology->save();
+        foreach ($technologies as $technology) {
+            $newTechnology = new Technology();
+            $newTechnology->name = $technology;
+            $newTechnology->slug = Str::slug($newTechnology->name);
+            $newTechnology->image = '';
+            $newTechnology->save();
         }
     }
 }
