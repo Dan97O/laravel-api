@@ -31,6 +31,7 @@ class StoreProjectRequest extends FormRequest
             'source_code' => ['nullable', 'max:255'],
             'date_time' => ['date'],
             'type_id' => ['exists:types,id'],
+            'technologies' => ['exists:technologies,id'],
         ];
     }
 }

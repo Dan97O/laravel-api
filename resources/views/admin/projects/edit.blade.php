@@ -35,6 +35,37 @@
                     </select>
                 </div>
 
+
+
+                <div class="my-5">
+                    <p>Modify the technologies used:</p>
+                    <div class="form-group d-flex gap-5 flex-wrap">
+                        @foreach ($technologies as $technology)
+                            <div class="form-check @error('technology') is-invalid @enderror">
+                                <label class="form-check-label">
+                                    @if ($errors->any())
+                                        <input name="technologies[]" type="checkbox" value="{{ $technology->id }}"
+                                            class="form-check-input"
+                                            {{ in_array($technology->id, old('technology', [])) ? 'checked' : '' }}>
+                                    @else
+                                        <input name="technologies[]" type="checkbox" value="{{ $technology->id }}"
+                                            class="form-check-input"
+                                            {{ $project->technologies->contains($technology) ? 'checked' : '' }}>
+                                    @endif
+                                    {{ $technology->name }}
+                                </label>
+                            </div>
+                        @endforeach
+                        @error('technologies')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
+
+
+
+
                 <div class="mb-3">
                     <label for="cover_image" class="form-label">Image</label>
                     <input type="text" class="form-control @error('cover_image') is-invalid @enderror" name="cover_image"
