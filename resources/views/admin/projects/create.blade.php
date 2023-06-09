@@ -93,7 +93,8 @@
                 <div class="mb-3">
                     <label for="content" class="form-label">Content</label>
                     <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="content" rows="6"
-                        value="{{ old('content') }}" placeholder="Add Description"></textarea>
+                        value="{{ old('content') }}" placeholder="Add Description">{{ old('content') }}
+                    </textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Save</button>
             </form>

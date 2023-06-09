@@ -25,32 +25,40 @@
 <body class="overflow-x-hidden">
     <div id="app">
         <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-            <a class="navbar-brand col-md-3 col-lg-2 me-1 px-3 bg-black" href="#">BoolPress</a>
+            <a class="navbar-brand col-md-3 col-lg-2 me-1 px-3 bg-black" href="{{ route('admin.projects.index') }}">My
+                Portfolio</a>
             <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
                 data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <input class="form-control form-control-dark bg-secondary border-secondary me-1 w-100  text-white"
-                type="text" placeholder="Search" aria-label="Search">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="triggerId"
-                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+
+            <div class="btn-group dropstart">
+                <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
                     {{ Auth::user()->name }}
                 </button>
-                <div class="dropdown-menu dropdown-menu-left bg-secondary" aria-labelledby="triggerId">
-                    <a class="dropdown-item text-white" href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
-                    <a class="dropdown-item text-white" href="{{ url('profile') }}">{{ __('Profile') }}</a>
-                    <a class="dropdown-item text-white" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item text-black"
+                            href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item text-black" href="{{ url('profile') }}">{{ __('Profile') }}</a>
 
+                    </li>
+                    <li>
+                        <a class="dropdown-item text-black" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                    </li>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
-                </div>
+                </ul>
             </div>
         </nav>
 
@@ -83,7 +91,7 @@
                             <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.technologies.index' ? 'bg-dark' : '' }}"
                                     href="{{ route('admin.technologies.index') }}">
-                                    <i class="fa-solid fa-tags"></i>
+                                    <i class="fa-solid fa-microchip"></i>
                                     {{ __('Technologies') }}
                                 </a>
                             </li>

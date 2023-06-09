@@ -35,8 +35,6 @@
                     </select>
                 </div>
 
-
-
                 <div class="my-5">
                     <p>Modify the technologies used:</p>
                     <div class="form-group d-flex gap-5 flex-wrap">
@@ -61,10 +59,6 @@
                         @enderror
                     </div>
                 </div>
-
-
-
-
 
                 <div class="mb-3">
                     <label for="cover_image" class="form-label">Image</label>
