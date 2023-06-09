@@ -19,6 +19,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
+
+        //$projects = Auth::user()->projects()->orderByDesc('id')->get();
         $projects = Project::orderByDesc('id')->get();
         return view('admin.projects.index', compact('projects'));
     }
@@ -51,6 +53,9 @@ class ProjectController extends Controller
         //dd($slug);
         $val_data['slug'] = $slug;
         //dd($val_data);
+
+        //$val_data['user_id'] = Auth::id();
+
         // Create the new Post
         $new_project = Project::create($val_data);
 
@@ -84,6 +89,11 @@ class ProjectController extends Controller
     {
         $types = Type::orderByDesc('id')->get();
         $technologies = Technology::orderByDesc('id')->get();
+
+        /*   if (Auth::id() === $project->user_id) {
+        return view('admin.projects.edit', compact('project', 'types', 'technologies'));
+        };
+        abort(403); */
         return view('admin.projects.edit', compact('project', 'types', 'technologies'));
     }
 

@@ -3,25 +3,29 @@
 
 @section('content')
     <div class="container py-5">
-        <div class="row">
-            <div class="col-lg-6">
-                <img src="{{ $project->cover_image }}" alt="{{ $project->title }}" class="img-fluid">
-            </div>
-            <div class="col-lg-6">
-                <h2 class="title">{{ $project->title }}</h2>
-                <p> {{ $project->type?->type }} </p>
-                <p class="description">{{ $project->content }}</p>
-                <div class="buttons d-flex justify-content-between">
-                    <a href="{{ $project->site_link }}" class="btn btn-primary">{{ __('View Site') }}</a>
-                    <a href="{{ $project->source_code }}" class="btn btn-primary">{{ __('View Project') }}</a>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <img src="{{ $project->cover_image }}" alt="{{ $project->title }}" class="card-img">
+                    <div class="card-body">
+                        <h2 class="card-title text-center">{{ $project->title }}</h2>
+                        <div class="d-flex justify-content-between pb-3">
+                            <a href="{{ $project->site_link }}" class="btn btn-primary">{{ __('View Site') }}</a>
+                            <a href="{{ $project->source_code }}" class="btn btn-success">{{ __('View Project') }}</a>
+                        </div>
+                        <p class="card-text"><strong>{{ __('Type:') }}</strong> {{ $project->type?->type }}</p>
+                        <p class="card-text"><strong>{{ __('Description:') }}</strong> {{ $project->content }}</p>
+                        <p class="card-text"><strong>{{ __('Date:') }}</strong> {{ $project->date_time }}</p>
+                        <p class="card-text">
+                            @foreach ($project->technologies as $technology)
+                                <span class="badge bg-success">{{ $technology->name }}</span>
+                            @endforeach
+                        </p>
+                    </div>
                 </div>
-                <p class="date pt-3">{{ __('Date:') }} {{ $project->date_time }}</p>
-                <p>
-                    @foreach ($project->technologies as $technology)
-                        {{ $technology->name }}
-                    @endforeach
-                </p>
+
             </div>
+
         </div>
     </div>
 @endsection

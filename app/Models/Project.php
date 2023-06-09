@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,7 +13,7 @@ class Project extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'content', 'cover_image', 'slug', 'date_time', 'site_link', 'source_code', 'type_id', 'technology_id'];
+    protected $fillable = ['title', 'content', 'cover_image', 'slug', 'date_time', 'site_link', 'source_code', 'type_id', 'technology_id', 'user_id'];
 
     public static function generateSlug($title)
     {
@@ -27,5 +28,10 @@ class Project extends Model
     public function technologies(): BelongsToMany
     {
         return $this->belongsToMany(Technology::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }
