@@ -9,6 +9,7 @@ use App\Models\Project;
 use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -55,6 +56,13 @@ class ProjectController extends Controller
         //dd($val_data);
 
         //$val_data['user_id'] = Auth::id();
+
+        if ($request->hasFile('cover_image')) {
+            $image_path = Storage::put('uploads', $request->cover_image);
+            //dd($image_path);
+
+            $val_data['cover_image'] = $image_path;
+        }
 
         // Create the new Post
         $new_project = Project::create($val_data);

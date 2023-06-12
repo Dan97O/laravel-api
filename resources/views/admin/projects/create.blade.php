@@ -9,7 +9,7 @@
 
     <div class="row d-flex justify-content-center">
         <div class="col-6">
-            <form action="{{ route('admin.projects.store') }}" method="post">
+            <form action="{{ route('admin.projects.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
 
                 <div class="mb-3">
@@ -54,12 +54,9 @@
 
                 <div class="mb-3">
                     <label for="cover_image" class="form-label">Image</label>
-                    <input type="text" class="form-control @error('cover_image') is-invalid @enderror" name="cover_image"
-                        id="cover_image" aria-describedby="cover_imageHelper" placeholder="Add img URL"
-                        value="{{ old('cover_image') }}">
-                    <small id="cover_imageHelper" class="form-text text-muted">Type the post cover_image max 150 characters
-                        - must
-                        be unique</small>
+                    <input type="file" class="form-control @error('cover_image') is-invalid @enderror" name="cover_image"
+                        id="cover_image" aria-describedby="cover_imageHelper" placeholder="Add img">
+                    <small id="cover_imageHelper" class="form-text text-muted">Cover image max 1mb</small>
                 </div>
 
                 <div class="mb-3">
@@ -93,8 +90,7 @@
                 <div class="mb-3">
                     <label for="content" class="form-label">Content</label>
                     <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="content" rows="6"
-                        value="{{ old('content') }}" placeholder="Add Description">{{ old('content') }}
-                    </textarea>
+                        value="{{ old('content') }}" placeholder="Add Description">{{ old('content') }}</textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Save</button>
             </form>

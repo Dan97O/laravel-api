@@ -30,7 +30,8 @@
                 @forelse ($projects as $project)
                     <tr class="table-dark table-striped table-hover">
                         <td scope="row">{{ $project->id }}</td>
-                        <td><img height="100" src="{{ $project->cover_image }}" alt="{{ $project->title }}"></td>
+                        <td><img height="100" src="{{ asset('storage/' . $project->cover_image) }}"
+                                alt="{{ $project->title }}"></td>
                         <td>{{ $project->title }}</td>
                         <td>{{ $project->slug }}</td>
                         <td>{{ $project->type?->type }}</td>
