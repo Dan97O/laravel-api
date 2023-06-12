@@ -126,6 +126,18 @@ class ProjectController extends Controller
         //dd($slug);
         $val_data['slug'] = $slug;
         //dd($val_data);
+
+        if ($request->hasFile('cover_image')) {
+
+            if ($project->cover_image) {
+                Storage::delete($project->cover_image);
+            }
+
+            $image_path = Storage::put('uploads', $request->cover_image);
+            //dd($image_path);
+            $val_data['cover_image'] = $image_path;
+        }
+
         $project->update($val_data);
 
         if ($request->has('technologies')) {

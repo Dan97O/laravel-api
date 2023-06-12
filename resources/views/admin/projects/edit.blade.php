@@ -9,7 +9,7 @@
 
     <div class="row d-flex justify-content-center">
         <div class="col-6">
-            <form action="{{ route('admin.projects.update', $project) }}" method="post">
+            <form action="{{ route('admin.projects.update', $project) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
@@ -60,14 +60,18 @@
                     </div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="cover_image" class="form-label">Image</label>
-                    <input type="text" class="form-control @error('cover_image') is-invalid @enderror" name="cover_image"
-                        id="cover_image" aria-describedby="cover_imageHelper" value="{{ $project->cover_image }}">
-                    <small id="cover_imageHelper" class="form-text text-muted">
-                        Type the Project Cover Image
-                    </small>
+                <div class="d-flex gap-3">
+                    <img width="100" src="{{ asset('storage/' . $project->cover_image) }}" alt="">
+                    <div class="mb-3">
+                        <label for="cover_image" class="form-label">Image</label>
+                        <input type="file" class="form-control @error('cover_image') is-invalid @enderror"
+                            name="cover_image" id="cover_image" aria-describedby="cover_imageHelper">
+                        <small id="cover_imageHelper" class="form-text text-muted">
+                            Change the Project Cover Image
+                        </small>
+                    </div>
                 </div>
+
 
                 <div class="mb-3">
                     <label for="site_link" class="form-label">Site Link</label>
