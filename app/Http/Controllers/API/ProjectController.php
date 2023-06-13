@@ -11,11 +11,9 @@ class ProjectController extends Controller
     {
 
         $projects = Project::orderByDesc('id')->get();
-
         return response()->json([
             'success' => true,
             'projects' => $projects,
-
         ]);
     }
 }
