@@ -161,4 +161,9 @@ class ProjectController extends Controller
         $project->delete();
         return to_route('admin.projects.index')->with('message', 'Project deleted');
     }
+
+    public function shows()
+    {
+
+    }
 }
