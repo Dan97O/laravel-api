@@ -11,7 +11,7 @@ class ProjectController extends Controller
     {
 
         //$projects = Project::with(['type', 'technologies', 'user'])->orderByDesc('id')->get();
-        $projects = Project::with(['type', 'technologies', 'user'])->orderByDesc('id')->paginate(8);
+        $projects = Project::with(['type', 'technologies', 'user'])->orderByDesc('id')->paginate(50);
 
         return response()->json([
             'success' => true,
