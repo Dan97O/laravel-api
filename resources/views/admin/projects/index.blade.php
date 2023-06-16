@@ -2,6 +2,12 @@
 
 
 @section('content')
+    <style>
+        .img {
+            width: 100px;
+            object-fit: contain;
+        }
+    </style>
     <h1 class="mt-3">Show posts table</h1>
     <a class="btn btn-secondary my-3 text-end" href="{{ route('admin.projects.create') }}" role="button">Create a new
         Project</a>
@@ -30,7 +36,7 @@
                 @forelse ($projects as $project)
                     <tr class="table-dark table-striped table-hover">
                         <td scope="row">{{ $project->id }}</td>
-                        <td><img height="100" src="{{ asset('storage/' . $project->cover_image) }}"
+                        <td><img class="img" height="100" src="{{ asset('storage/' . $project->cover_image) }}"
                                 alt="{{ $project->title }}"></td>
                         <td>{{ $project->title }}</td>
                         <td>{{ $project->slug }}</td>
