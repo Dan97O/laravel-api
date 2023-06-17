@@ -11,19 +11,18 @@
             <h2 class="types_title text-center mb-5">Technologies</h2>
 
             <div class="col-6">
-                <form action="{{ route('admin.technologies.store') }}" method="post">
+                <form action="{{ route('admin.technologies.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="input-group mb-3 mt-3">
                         <input type="text" class="form-control bg-secondary border-0 text-white"
                             placeholder="Add technologies" aria-label="Button" name="name" id="name">
                     </div>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control bg-secondary border-0 text-white" placeholder="Add image"
-                            aria-label="Button" name="image" id="image">
-                        <button class="btn ms-1 btn-secondary text-white" type="submit">
-                            Add
-                        </button>
+                    <div class="mb-3">
+                        <input type="file"
+                            class="form-control bg-secondary border-0 @error('image') is-invalid @enderror" name="image"
+                            id="image" aria-describedby="helpId" placeholder="">
                     </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
                 <div class="row mt-5">
                     @foreach ($technologies as $technology)
@@ -31,7 +30,8 @@
                             <div class="card bg-black text-white shadow"
                                 style="width: 100%; height: 290px; position: relative;">
                                 @if ($technology->image)
-                                    <img src="{{ $technology->image }}" class="card-img-top" alt="{{ $technology->name }}">
+                                    <img src="{{ asset('storage/public/' . $technology->image) }}" class="card-img-top"
+                                        alt="{{ $technology->name }}">
                                 @else
                                     <img src="https://images.unsplash.com/photo-1686169505874-633b512546cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
                                         class="img-fluid" alt="{{ $technology->name }}">
@@ -70,7 +70,7 @@
                                     </td>
                                     <td>
                                         @if ($technology->image)
-                                            <img width="100" src=" {{ $technology->image }}"
+                                            <img width="100" src=" {{ asset('storage/public/' . $technology->image) }}"
                                                 alt=" {{ $technology->name }}">
                                         @else
                                             <img width="100"

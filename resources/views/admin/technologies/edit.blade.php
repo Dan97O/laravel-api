@@ -9,7 +9,7 @@
 
     <div class="row d-flex justify-content-center">
         <div class="col-6">
-            <form action="{{ route('admin.technologies.update', $technology) }}" method="post">
+            <form action="{{ route('admin.technologies.update', $technology) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
@@ -22,14 +22,22 @@
                         unique
                     </small>
                 </div>
-
-                <div class="mb-3">
+                {{--    <div class="mb-3">
                     <label for="image" class="form-label">Image</label>
                     <input type="text" class="form-control @error('image') is-invalid @enderror" name="image"
                         id="image" aria-describedby="imageHelper" value="{{ $technology->image }}">
                     <small id="imageHelper" class="form-text text-muted">
                         Type the Project Cover Image
                     </small>
+                </div> --}}
+                <div>
+                    <img style="width: 80px" src="{{ asset('storage/' . $technology->image) }}" alt="">
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image</label>
+                        <input type="file" class="form-control @error('image') is-invalid @enderror" name="image"
+                            id="image" aria-describedby="helpId">
+                        <small id="helpId" class="form-text text-muted">Cover Image</small>
+                    </div>
                 </div>
 
 
