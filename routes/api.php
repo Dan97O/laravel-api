@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\LeadController;
 use App\Http\Controllers\API\ProjectController;
 use App\Http\Controllers\API\TechnologyController;
 use Illuminate\Http\Request;
@@ -24,3 +25,5 @@ Route::get('/projects', [ProjectController::class, 'index']);
 Route::get('/projects/{project:slug}', [ProjectController::class, 'show']);
 
 Route::get('/technologies', [TechnologyController::class, 'index']);
+
+Route::post('/contacts', [LeadController::class, 'store']);
