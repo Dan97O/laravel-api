@@ -11,11 +11,11 @@
 <body>
 
     <h1>Hello</h1>
-    <p>hai ricevuto un nuovo messaggio dal sito</p>
+    <p>You have received a new message from the website:</p>
     <p>
-        nome: {{ $lead->name }} <br>
+        Name: {{ $lead->name }} <br>
         Email: {{ $lead->email }} <br>
-        Messaggio: <br>
+        Message: <br>
         {{ $lead->message }}
     </p>
 </body>
