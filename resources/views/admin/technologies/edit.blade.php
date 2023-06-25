@@ -31,7 +31,8 @@
                     </small>
                 </div> --}}
                 <div>
-                    <img style="width: 80px" src="{{ asset('storage/' . $technology->image) }}" alt="">
+                    <img style="width: 80px" src="{{ 'http://127.0.0.1:8000/storage/' . $technology->image }}"
+                        alt="">
                     <div class="mb-3">
                         <label for="image" class="form-label">Image</label>
                         <input type="file" class="form-control @error('image') is-invalid @enderror" name="image"

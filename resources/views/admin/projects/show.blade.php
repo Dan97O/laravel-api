@@ -6,7 +6,8 @@
         <div class="row d-flex justify-content-center">
             <div class="col-md-6">
                 <div class="card">
-                    <img src="{{ asset('storage/' . $project->cover_image) }}" alt="{{ $project->title }}" class="card-img">
+                    <img src="{{ 'http://127.0.0.1:8000/storage/' . $project->cover_image }}" alt="{{ $project->title }}"
+                        class="card-img">
                     <div class="card-body">
                         <h2 class="card-title text-center">{{ $project->title }}</h2>
                         <div class="d-flex justify-content-between pb-3">
