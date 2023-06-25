@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="d-flex gap-3">
-                    <img width="100" src="{{ assets('storage/' . $project->cover_image) }}" alt="">
+                    <img width="100" src="{{ asset('storage/' . $project->cover_image) }}" alt="">
                     <div class="mb-3">
                         <label for="cover_image" class="form-label">Image</label>
                         <input type="file" class="form-control @error('cover_image') is-invalid @enderror"
