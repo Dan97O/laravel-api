@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => [env('APP_FRONTEND_URL', 'http://localhost:5174'), 'https://provaportfolio.danieloddo.com'],
+    'allowed_origins' => [env('APP_FRONTEND_URL', 'http://localhost:5174'), 'https://portfolio.danieloddo.com'],
 
     'allowed_origins_patterns' => [],
 
